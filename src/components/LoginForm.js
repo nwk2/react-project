@@ -20,7 +20,7 @@ class LoginForm extends React.Component {
         const { data } = this.state;
 
         return (
-            <div class="ui form">
+            <div className="ui form">
             <Form>
                 <Form.Field>
                     <label htmlFor='username'>Username</label>
