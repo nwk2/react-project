@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React/*, { Component }*/ from 'react';
 import { Route } from 'react-router-dom';
 import HomePage from './components/HomePage';
 import LoginPage from './components/LoginPage';
