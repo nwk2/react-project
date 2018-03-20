@@ -1,14 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
 import 'semantic-ui-css/semantic.min.css';
 import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import Header from './components/Header';
+import 'primereact/resources/primereact.min.css';
+import 'primereact/resources/themes/omega/theme.css';
+import 'font-awesome/css/font-awesome.css';
 
-ReactDOM.render(
-    <BrowserRouter>
-        <App />
-    </BrowserRouter>,
-    document.getElementById("root")
-);
-registerServiceWorker();
+ReactDOM.render(<Header />, document.getElementById("header"));
+ReactDOM.render(<App />, document.getElementById("root"));

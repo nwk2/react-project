@@ -1,14 +1,16 @@
-import React/*, { Component }*/ from 'react';
-import { Route } from 'react-router-dom';
-import HomePage from './components/HomePage';
+import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import LoginPage from './components/LoginPage';
-import FilterTable from './components/FilterTable';
+import TabMenu from "./components/TabMenu";
 
 const App = () =>
-    <div className='ui container'>
-        <Route path='/'  exact component={HomePage} />
-        <Route path='/login' exact component={LoginPage}/>
-        <Route path='/data' exact component={FilterTable}/>
-    </div>;
+
+    <Router>
+    <div>
+        <Route path='/'  exact component={TabMenu} />
+        <Route path='/login'  exact component={LoginPage} />
+    </div>
+    </Router>
+;
 
 export default App;
