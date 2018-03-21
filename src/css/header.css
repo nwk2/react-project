@@ -1,23 +1,33 @@
-.App {
-    text-align: center;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    height: 110px;
-}
-.App-logo {
+.react-logo {
     animation: App-logo-spin infinite 9s linear;
-    height: 90px;
+    height: 50px;
 }
-.App-footer {
-    background-color: white;
-    padding: 0px;
-    color: white;
-}
+
 @keyframes App-logo-spin {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
 }
-.feature-intro {
-    padding-left: 10px;
+.feature-intro {    /* EQ logo and "Spring Boot Applications" */
+    padding-left: 20px;
+    padding-bottom: 15px;
+}
+.content-section-implementation {
+    font-size: 15px;
+}
+.navbar {
+    min-height: 70px;
+    background-color: black;
+}
+.navbar-collapse {
+    padding: 10px;
+}
+.navbar-brand {
+    padding: 10px;
+}
+h1 {
+    display: inline-block;
+    padding-left: 30px;
+}
+.navbar-inverse {
+    margin-bottom: 0px;
 }

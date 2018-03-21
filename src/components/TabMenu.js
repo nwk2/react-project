@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import {TabView, TabPanel} from 'primereact/components/tabview/TabView';
 import FilterTable from './FilterTable';
 import '../css/header.css';
-import {Row, Col, Nav, NavItem, Tabs, Tab} from 'react-bootstrap';
+import Logo from '../components/Logo.svg';
 
 
 
@@ -21,14 +21,13 @@ class TabMenu extends Component {
     render() {
 
         return (
-
-            <div>
+            <div className="all">
                 <div className="content-section">
                     <div className="feature-intro">
-                        <h1>Spring Boot Applications</h1>
+                        <img src={Logo} width="auto" height="50px"alt="logo"/><h1 className="springboot-app">Spring Boot Applications</h1>
                     </div>
                 </div>
-                <div className="content-section implementation">
+                <div className="content-section-implementation">
                     <TabView>
                         <TabPanel header="Applications">
                             <FilterTable/>
@@ -40,8 +39,6 @@ class TabMenu extends Component {
                         </TabPanel>
                     </TabView>
                 </div>
-
-
             </div>
         );
     }

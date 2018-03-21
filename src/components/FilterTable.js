@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import {DataTable} from 'primereact/components/datatable/DataTable';
 import {Column} from 'primereact/components/column/Column';
 import {InputText} from 'primereact/components/inputtext/InputText';
-import SomeService from '../Service/SomeService';
 //import {Dropdown} from 'primereact/components/dropdown/Dropdown';
 import {MultiSelect} from 'primereact/components/multiselect/MultiSelect';
 import {Button} from 'primereact/components/button/Button';
+import CarService from '../service/CarService';
 
 
 
@@ -16,26 +16,50 @@ class FilterTable extends Component {
         this.state = {
             filters: {}
         };
-        this.someservice = new SomeService();
+        this.carservice = new CarService();
         this.export = this.export.bind(this);
         //this.onBrandChange = this.onBrandChange.bind(this);
         this.onColorChange = this.onColorChange.bind(this);
         this.onFilter = this.onFilter.bind(this);
+        this.rowExpansionTemplate = this.rowExpansionTemplate.bind(this);
     }
 
     componentDidMount() {
-        this.someservice.getItems()
+        this.carservice.getCars()
             .then( data => {
                 this.setState({
-                    items: data
+                    cars: data
                 });
             })
-        console.log(this.state.items);
+        console.log(this.state.cars);
         console.log('^component mount');
     }
 
     export() {
         this.dt.exportCSV();
+    }
+
+    rowExpansionTemplate(data) {
+        return  <div className="ui-g ui-fluid">
+            <div className="ui-g-12 ui-md-3" style={{textAlign:'center', borderRight: '1px solid #cccccc'}}>
+
+            </div>
+            <div className="ui-g-12 ui-md-9">
+                <div className="ui-g">
+                    <div className="ui-md-2">Vin: </div>
+                    <div className="ui-md-10" style={{fontWeight:'bold'}}>{data.vin}</div>
+
+                    <div className="ui-md-2">Year: </div>
+                    <div className="ui-md-10" style={{fontWeight:'bold'}}>{data.year}</div>
+
+                    <div className="ui-md-2">Brand: </div>
+                    <div className="ui-md-10" style={{fontWeight:'bold'}}>{data.brand}</div>
+
+                    <div className="ui-md-2">Color: </div>
+                    <div className="ui-md-10" style={{fontWeight:'bold'}}>{data.color}</div>
+                </div>
+            </div>
+        </div>;
     }
 
     /*onBrandChange(e) {
@@ -55,7 +79,7 @@ class FilterTable extends Component {
 
     render() {
         var header = <div style={{'textAlign':'left'}}>
-            <i className="fa fa-search" style={{margin:'4px 4px 0 0'}}></i>
+            <i className="fa fa-search" style={{margin:'4px 4px 0 0'}}> </i>
             <InputText type="search" onInput={(e) => this.setState({globalFilter: e.target.value})} placeholder="Search" size="50"/>
             <Button type="button" icon="fa-file-o" iconPos="left" label="" onClick={this.export}>CSV</Button>
         </div>;
@@ -89,18 +113,21 @@ class FilterTable extends Component {
         let colorFilter = <MultiSelect style={{width:'100%'}} className="ui-column-filter" value={this.state.filters.color ? this.state.filters.color.value: null} options={colors} onChange={this.onColorChange}/>
 
         return (
+
             <div>
                 <div className="content-section introduction">
                     <div className="feature-intro">
-                        <p>{/*Filtering is enabled by setting the filter property as true in column object. Default match mode is "startsWith" and this can be configured using filterMatchMode
-                            property of column object that also accepts "contains", "endsWith", "equals" and "in".*/}
-                        </p>
+                        {/*<p>Filtering is enabled by setting the filter property as true in column object. Default match mode is "startsWith" and this can be configured using filterMatchMode
+                            property of column object that also accepts "contains", "endsWith", "equals" and "in".
+                        </p>*/}
                     </div>
                 </div>
 
                 <div className="content-section-implementation">
-                    <DataTable value={this.state.items} paginator={true} rows={10} header={header}
-                               globalFilter={this.state.globalFilter} filters={this.state.filters} onFilter={this.onFilter} ref={(el) => { this.dt = el; }}>
+                    <DataTable value={this.state.cars} paginator={true} rows={10} header={header}
+                               globalFilter={this.state.globalFilter} filters={this.state.filters} onFilter={this.onFilter} ref={(el) => { this.dt = el; }}
+                               expandedRows={this.state.expandedRows} onRowToggle={(e) => this.setState({expandedRows:e.data})} rowExpansionTemplate={this.rowExpansionTemplate} >
+                        <Column expander={true} style={{width: '2em'}} />
                         <Column field="vin" header="Application/URL" filter={false} sortable={true} />
                         <Column field="brand" header="Version" filter={false} sortable={true} />
                         <Column field="year" header="Info" filter={false} sortable={true} />
