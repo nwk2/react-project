@@ -3,8 +3,8 @@ import React, {Component} from 'react';
 import {TabView, TabPanel} from 'primereact/components/tabview/TabView';
 import FilterTable from './FilterTable';
 import '../css/header.css';
-import Logo from '../components/Logo.svg';
-
+import Logo from '../images/Logo.svg';
+import Metrics from "./Metrics";
 
 
 class TabMenu extends Component {
@@ -29,13 +29,12 @@ class TabMenu extends Component {
                 </div>
                 <div className="content-section-implementation">
                     <TabView>
-                        <TabPanel header="Applications">
+                        <TabPanel header="Dummy Data">
                             <FilterTable/>
                         </TabPanel>
 
-                        <TabPanel header="Second Tab">
-                            <h4>Second Tab</h4>
-                            <p>Some data</p>
+                        <TabPanel header="Backend Metrics">
+                            <Metrics/>
                         </TabPanel>
                     </TabView>
                 </div>

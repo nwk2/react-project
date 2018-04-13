@@ -30,9 +30,7 @@ class FilterTable extends Component {
                 this.setState({
                     cars: data
                 });
-            })
-        console.log(this.state.cars);
-        console.log('^component mount');
+            });
     }
 
     export() {

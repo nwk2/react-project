@@ -7,7 +7,7 @@ import 'primereact/resources/themes/omega/theme.css';
 import 'font-awesome/css/font-awesome.css';
 import { Navbar, Nav, NavDropdown, NavItem, MenuItem } from 'react-bootstrap';
 //import springboot from '../components/springboot.png';
-import ReactLogo from '../components/ReactLogo.svg';
+import ReactLogo from '../images/ReactLogo.svg';
 
 
 class Header extends Component {
@@ -18,7 +18,7 @@ class Header extends Component {
                <Navbar inverse collapseOnSelect>
                    <Navbar.Header>
                        <Navbar.Brand>
-                           <a href="/"><img className="react-logo" src={ReactLogo} alt="React Logo"/></a>
+                           <a href="/"><img className="react-head-logo" src={ReactLogo} alt="React Logo"/></a>
                        </Navbar.Brand>
                        <Navbar.Toggle />
                    </Navbar.Header>
@@ -42,7 +42,7 @@ class Header extends Component {
                            <NavItem eventKey={1} href="/sources">
                                Sources
                            </NavItem>
-                           <NavItem eventKey={2} href="#">
+                           <NavItem eventKey={2} href="/LoginPage">
                                Log Out
                            </NavItem>
                        </Nav>
