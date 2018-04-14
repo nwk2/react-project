@@ -1,12 +1,11 @@
 //header w buttons and react logo
 import React, { Component } from 'react';
-//import logo from '../ReactLogo.svg';
-import '../css/header.css';
+import '../css/main.css';
 import 'primereact/resources/primereact.min.css';
 import 'primereact/resources/themes/omega/theme.css';
 import 'font-awesome/css/font-awesome.css';
 import { Navbar, Nav, NavDropdown, NavItem, MenuItem } from 'react-bootstrap';
-//import springboot from '../components/springboot.png';
+import { Icon } from 'semantic-ui-react';
 import ReactLogo from '../images/ReactLogo.svg';
 
 
@@ -25,17 +24,17 @@ class Header extends Component {
                    <Navbar.Collapse>
                        <Nav>
                            <NavItem eventKey={1} href="/">
+                               Dashboard
+                           </NavItem>
+                           <NavItem eventKey={2} href="/info">
                                Info
                            </NavItem>
-                           <NavItem eventKey={2} href="/">
-                               About
-                           </NavItem>
-                           <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
-                               <MenuItem eventKey={3.1}>Action</MenuItem>
-                               <MenuItem eventKey={3.2}>Another action</MenuItem>
-                               <MenuItem eventKey={3.3}>Something else here</MenuItem>
-                               <MenuItem divider />
-                               <MenuItem eventKey={3.3}>Separated link</MenuItem>
+                           <NavDropdown eventKey={3} title="Find Me" id="basic-nav-dropdown">
+                               <MenuItem eventKey={3.1} href="https://www.github.com/nwk2">My Github</MenuItem>
+                               <MenuItem eventKey={3.2} href="https://www.linkedin.com/in/ngwaikit1">My LinkedIn</MenuItem>
+                               <MenuItem id="email" eventKey={3.3}>ng.wai.kit.22@gmail.com  <Icon name="copy"/></MenuItem>
+                               {/*<MenuItem divider />
+                               <MenuItem eventKey={3.3}>Separated link</MenuItem>*/}
                            </NavDropdown>
                        </Nav>
                        <Nav pullRight>

@@ -23,6 +23,7 @@
     min-height: 40px;
     background-color: black;
     border-radius: 0;
+    width: 100vw;
 }
 /*.navbar-collapse {
     padding: 0px;
@@ -60,4 +61,15 @@ h1 {
 }
 .navbar-inverse {
     margin-bottom: 0;
+}
+.info-page {
+    width: 100vw;
+    padding: 20px;
+}
+a {
+    color: black;
+}
+a:hover {
+    color:black;
+    text-decoration: none;
 }

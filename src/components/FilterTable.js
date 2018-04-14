@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {DataTable} from 'primereact/components/datatable/DataTable';
 import {Column} from 'primereact/components/column/Column';
 import {InputText} from 'primereact/components/inputtext/InputText';
-//import {Dropdown} from 'primereact/components/dropdown/Dropdown';
 import {MultiSelect} from 'primereact/components/multiselect/MultiSelect';
 import {Button} from 'primereact/components/button/Button';
 import CarService from '../service/CarService';
@@ -76,7 +75,7 @@ class FilterTable extends Component {
     }
 
     render() {
-        var header = <div style={{'textAlign':'left'}}>
+        const header = <div style={{'textAlign':'left'}}>
             <i className="fa fa-search" style={{margin:'4px 4px 0 0'}}> </i>
             <InputText type="search" onInput={(e) => this.setState({globalFilter: e.target.value})} placeholder="Search" size="50"/>
             <Button type="button" icon="fa-file-o" iconPos="left" label="" onClick={this.export}>CSV</Button>
@@ -108,7 +107,9 @@ class FilterTable extends Component {
             {label: 'Blue', value: 'Blue'}
         ];
 
-        let colorFilter = <MultiSelect style={{width:'100%'}} className="ui-column-filter" value={this.state.filters.color ? this.state.filters.color.value: null} options={colors} onChange={this.onColorChange}/>
+        let colorFilter = <MultiSelect style={{width:'100%'}} className="ui-column-filter"
+                                       value={this.state.filters.color ? this.state.filters.color.value: null}
+                                       options={colors} onChange={this.onColorChange}/>;
 
         return (
 

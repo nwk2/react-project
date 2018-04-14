@@ -1,18 +1,12 @@
 import React, {Component} from 'react';
-//import {TabMenu} from 'primereact/components/tabmenu/TabMenu';
 import {TabView, TabPanel} from 'primereact/components/tabview/TabView';
 import FilterTable from './FilterTable';
-import '../css/header.css';
+import '../css/main.css';
 import Logo from '../images/Logo.svg';
 import Metrics from "./Metrics";
-
+import AlertDisclaimer from "./AlertDisclaimer";
 
 class TabMenu extends Component {
-
-    /*constructor() {
-        super();
-        this.state = {};
-    }*/
 
     shouldComponentUpdate() {
         return false;
@@ -23,8 +17,11 @@ class TabMenu extends Component {
         return (
             <div className="all">
                 <div className="content-section">
+                    <AlertDisclaimer/>
                     <div className="feature-intro">
-                        <img src={Logo} width="auto" height="50px"alt="logo"/><h1 className="springboot-app">Spring Boot Applications</h1>
+                        <img src={Logo} width="auto" height="50px" alt="logo"/>
+                        <h1 className="springboot-app">Spring Boot Applications</h1>
+
                     </div>
                 </div>
                 <div className="content-section-implementation">
@@ -33,12 +30,13 @@ class TabMenu extends Component {
                             <FilterTable/>
                         </TabPanel>
 
-                        <TabPanel header="Backend Metrics">
+                        <TabPanel header="Actuator">
                             <Metrics/>
                         </TabPanel>
                     </TabView>
                 </div>
             </div>
+
         );
     }
 }
