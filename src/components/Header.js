@@ -41,7 +41,7 @@ class Header extends Component {
                            <NavItem eventKey={1} href="/sources">
                                Sources
                            </NavItem>
-                           <NavItem eventKey={2} href="/LoginPage">
+                           <NavItem eventKey={2} href="/login">
                                Log Out
                            </NavItem>
                        </Nav>
